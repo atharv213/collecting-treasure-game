@@ -1,5 +1,5 @@
-var fruitb,fruit1b,fruit2b,fruit3b,swordb,gameoverb,monsterknifesound,diesound;
-var fruitba,fruit1ba,fruit2ba,fruit3ba,swordba,gameoverba,monstera,knifesounda,diesounda;
+var fruitb,fruit1b,fruit2b,fruit3b,swordb,gameoverb,monster,monsterknifesound,diesound,monster2;
+var fruitba,fruit1ba,fruit2ba,fruit3ba,swordba,gameoverba,monstera,knifesounda,diesounda,monster2a;
 
 var PLAY=1;
 var END=0;
@@ -35,6 +35,9 @@ knifesounda=
   
 diesounda=
   loadSound("gameover.mp3");
+  
+monster2a=
+  loadImage("alien2.png")
 
 }
 
@@ -50,6 +53,7 @@ createCanvas(400, 400);
   fruit2bGroup = new Group();
   fruit3bGroup = new Group();
   enemyGroup = new Group();
+  enemy2Group = new Group();
   
   score=0;
    
@@ -98,6 +102,7 @@ function draw(){
   spawnb3fruits();
   spawnb4fruits();
   spawnenemy();
+  spawn2enemy();
  }
   if (score>4){ 
   fruitb . velocityX= 10;
@@ -219,5 +224,20 @@ if (World.frameCount%200===0){
   
 }
 }
+
+
+function spawn2enemy(){
+if (World.frameCount%200===0){
+  monster2 = createSprite(400,210,20,20);
+  monster2.addImage(monster2a);
+  monster2.y=Math.round(random(100,300));
+  monster2.velocityX=-24;
+  monster2.setLifetime=50;
+  
+  enemy2Group.add(monster2)
+  
+}
+}
+
 
   
